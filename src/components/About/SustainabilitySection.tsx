@@ -1,7 +1,7 @@
 import handshake from "../../assets/about/handshake.png"
 import { motion } from 'framer-motion';
-import { ArrowRight, Leaf, Globe } from 'lucide-react';
-import sustain from "../../assets/about/sustain.png"
+import {Leaf, Globe } from 'lucide-react';
+
 
 const SustainabilitySection = () =>
 {

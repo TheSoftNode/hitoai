@@ -1,6 +1,5 @@
 import About from '@/pages/About';
 import ContactPage from '@/pages/ContactPage';
-import DocsPage from '@/pages/Docs';
 import Docs from '@/pages/DocsPage';
 import Landing from '@/pages/Landing';
 import LoginPage from '@/pages/Login';

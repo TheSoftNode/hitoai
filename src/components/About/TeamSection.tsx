@@ -3,7 +3,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Users, Code, Target, GraduationCap, MessageSquare } from 'lucide-react';
+import { Users, GraduationCap, MessageSquare } from 'lucide-react';
 import { teamCategories } from "../../../data/team";
 
 interface TeamMemberProps

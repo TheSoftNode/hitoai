@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X, Copy, Check, Code, BookOpen, Cpu, Key, ChevronRight, ArrowRight, ExternalLink, ChevronDown } from 'lucide-react';
+import { Search, Menu, Code, BookOpen, Cpu, Key, ChevronRight, ArrowRight, ExternalLink, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
@@ -32,7 +32,7 @@ interface NavSectionProps {
 const DocsPage: React.FC = () => {
     const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
     const [activeSection, setActiveSection] = useState<string>('introduction');
-    const [copied, setCopied] = useState<boolean>(false);
+    // const [copied, setCopied] = useState<boolean>(false);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [scrollProgress, setScrollProgress] = useState<number>(0);
     const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({
@@ -88,7 +88,7 @@ const DocsPage: React.FC = () => {
         }));
     };
 
-    const NavItem: React.FC<NavItemProps> = ({ item, section }) => (
+    const NavItem: React.FC<NavItemProps> = ({ item }) => (
         <motion.li
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}

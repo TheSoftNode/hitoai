@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Menu, X, ChevronDown, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
-// import hitoai from "../../assets/logo.jpeg"
 import hitoai from "../../assets/newlogo.png"
 
 const Navbar = () =>

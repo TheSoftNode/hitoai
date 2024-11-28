@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X, Copy, Check, Code, BookOpen, Cpu, Key, ChevronRight, ArrowRight, ExternalLink, ChevronDown } from 'lucide-react';
+import { Search, Menu,  Code, BookOpen, Cpu, Key, ChevronRight, ArrowRight, ExternalLink, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
@@ -37,7 +37,7 @@ const Docs: React.FC = () =>
 {
     const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
     const [activeSection, setActiveSection] = useState<string>('introduction');
-    const [copied, setCopied] = useState<boolean>(false);
+    // const [copied, setCopied] = useState<boolean>(false);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [scrollProgress, setScrollProgress] = useState<number>(0);
     const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({
@@ -98,7 +98,7 @@ const Docs: React.FC = () =>
         }));
     };
 
-    const NavItem: React.FC<NavItemProps> = ({ item, section }) => (
+    const NavItem: React.FC<NavItemProps> = ({ item }) => (
         <motion.li
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -172,6 +172,10 @@ const Docs: React.FC = () =>
 
     return (
         <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+            <div
+                className="fixed top-0 left-0 h-1 bg-blue-500 z-50 transition-all duration-300"
+                style={{ width: `${scrollProgress}%` }}
+            />
             {/* Header */}
             <header className=" w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
                 <div className="flex items-center justify-between px-4 h-14">

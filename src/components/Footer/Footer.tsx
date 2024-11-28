@@ -2,9 +2,8 @@ import f6sLogo from "../../assets/f6s-logo.png";
 import footerBanner from "../../assets/footer3.png";
 
 
-import React, { useState } from 'react';
-import { FaEnvelope, FaFacebook, FaLinkedin, FaPhone, FaTwitter, FaInstagram, FaChevronDown } from 'react-icons/fa';
-import { Button } from "@/components/ui/button";
+import { useState } from 'react';
+import { FaEnvelope, FaFacebook, FaLinkedin, FaPhone, FaChevronDown } from 'react-icons/fa';
 
 const Footer = () =>
 {
