@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Dr. Shahram Azizi Sazi",
+    "image": "/Team/sas photo.jpeg",
+    "position": "CEO",
+    "description": "Dr. Shahram Azizi is a  renowned Senior Lecturer in Artificial Intelligence and Computing with over two decades of experience in data-driven solutions across diverse sectors. Since 2018, he has excelled as a Senior Data Scientist, leading the development of AI-powered software and machinery. His profound expertise  and pioneering efforts continuously drive progress in AI and computing.",
+    "Linkedin": "https://www.linkedin.com/in/shahram-azizi-sazi-phd-in-data-and-knowledge-processing-6149342a/"
+  },
+  {
+    "name": "Dr. Mina Ghahrenanzamaneh",
+    "image": "/Team/mgh.jpg",
+    "position": "Managing Director",
+    "description": " Dr. M Ghahrenanzamaneh is a university lecturer and successful entrepreneur in the fields of EdTech and AI. She directs and owns two Irish startups, BIASADRA and HitoAI Limited. Additionally, she is a shareholder in GalMAX, a company innovating in bioprocessing at UCD.",
+    "Linkedin": "https://www.linkedin.com/in/mina-ghahremanzamaneh-14b34a38/"
+  },
+  {
+    "name": "Shenal Elekuttige",
+    "image": "/Team/shenalphoto.jpg",
+    "position": "Chief Scientist Officer",
+    "description": " Shenal serves as the Chief Scientific Officer and is a seasoned AI modeler with a proven track record in developing and deploying advanced AI solutions, particularly in startup environments. His expertise encompasses machine learning, data analytics, and predictive modeling.",
+    "Linkedin": "https://www.linkedin.com/in/shenal-fernando/"
+  },
+  {
+    "name": "Baqer Al Shakhs, MBA",
+    "image": "/Team/baqerphoto.jpg",
+    "position": "Chief Commercial Officer",
+    "description": "Baqer Al Shakhs is a Business Development and Data Analytics Specialist with over eight years of experience in startups, retail, and consulting. He holds an MBA and is pursuing an MS in Data Analytics at Dublin Business School. Baqer excels in solving complex challenges and delivering innovative solutions using his skills in data modeling, machine learning, Python, and R. His expertise in project management and strategic thinking has consistently driven growth and optimized operations",
+    "Linkedin": "https://www.linkedin.com/in/baqeralshakhs/"
+  },
+  {
+    "name": "Aswanth Manoharan",
+    "image": "/Team/aswanth.jpeg",
+    "position": "Data Scientist/Machine Learning Expert",
+    "description": " Aswanth Manoharan is a data science and machine learning expert with extensive experience in data analysis, machine learning, and full-stack web development. He has worked as a Data Science Trainee, Machine Learning Intern, and Python Development Intern. As a freelancer, he developed a web application for a supermarket using Django Rest Framework and React.js. Aswanth has strong skills in Python, Django, React.js, and various machine-learning frameworks, and is dedicated to continuous learning and innovation.",
+    "Linkedin": "https://www.linkedin.com/in/aswanth-manoharan-3807a41ba/"
+  },
+  {
+    "name": "Omkar Patil",
+    "image": "/Team/omkar.jpeg",
+    "position": "Product and UI Designer",
+    "description": " Omkar Patil is a V-shaped Product Designer with experience in designing innovative solutions for enterprise SAAS, B2B/B2C platforms covering mobile and web applications. She fosters a user-centered approach and business-oriented solutions throughout the entire design lifecycle, which includes requirement gathering, design thinking, rapid prototyping, user testing, and collaborating with cross-functional teams. Additionally, Omkar possesses expertise in 3D, AR, and VR, along with motion design, interaction design and visual design.",
+    "Linkedin": "https://www.linkedin.com/in/omkarpatil997/"
+  },
+  {
+    "name": "Thang Dang",
+    "image": "/Team/profile-photo.png",
+    "position": "IoT Programmer and Developer",
+    "description": " Thang Dang is an IoT programmer with a strong interest in various programming areas, including web and mobile design and development, data analysis, database design, RPA, and game development. He is proficient in multiple programming disciplines, such as web and mobile development, data processing and analysis, database design, RPA, and game development.",
+    "Linkedin": "https://www.linkedin.com/in/th%E1%BA%AFng-%C4%91%E1%BA%B7ng-b8b3471b9/"
+  },
+  {
+    "name": "Meethu Jose ",
+    "image": "/Team/Meethu.jpg",
+    "position": "Full Stack Developer",
+    "description": " Meethu Jose is an experienced Full Stack Developer with nearly three years of expertise in both frontend and backend development, holding a Master's degree in Data Analytics from Dublin Business School. Skilled in modern JavaScript frameworks like ReactJS, NodeJS, and Express.JS, with a focus on building scalable web applications, creating user-friendly interfaces, and optimizing performance for high-traffic sites. Proficient in Agile methodologies and DevOps principles, with front-end experience in responsive design, Redux, Material UI, and AntD, and back-end skills in MongoDB, Firebase, and developing RESTful APIs..",
+    "Linkedin": "https://www.linkedin.com/in/meethu-jose/"
+  },
+  {
+    "name": "Venkaiah  Malli ",
+    "image": "/Team/malli.jpg",
+    "position": "Data Scientist",
+    "description": " Venkaiah Malli is an experienced data analyst and machine learning developer, skilled in extracting insights from complex datasets and building predictive models to solve real-world problems. He has a solid background in data analysis, statistical modeling, and machine learning techniques, enabling him to effectively interpret data, make informed decisions, and develop data-driven solutions. With a keen eye for detail and a passion for innovation, Venkaiah applies his expertise to enhance business processes, optimize performance, and contribute to the development of intelligent systems.",
+    "Linkedin": "https://www.linkedin.com/in/venkaiah-malli-98aa47219/"
+  },
+  {
+    "name": "Fatima Abdullahi Wan",
+    "image": "/Team/Fatimah photo.jpeg",
+    "position": "Graphic Designer & Marketing Executive",
+    "description": " Fatima is a recent Product Design graduate from Maynooth University with experience in graphic design, CAD modelling, prototyping, and marketing. She is currently pursuing a master’s in Medical Device Design at NCAD, applying her creativity and innovation skills to the medical field.",
+    "Linkedin": ""
+  },
+  {
+    "name": "Swati Mandaokar",
+    "image": "/Team/professional-photo.jpg",
+    "position": "Software Developer",
+    "description": "Swati Mandaokar is Frontend Developer with 4 years of hands-on experience, I specialize in building responsive, user-friendly web applications using modern technologies such as HTML5, CSS3, JavaScript, React. Passionate about creating seamless user experiences, optimizing web performance, and maintaining clean, maintainable code. Throughout my career, I've successfully collaborated with cross-functional teams to design and implement features that improve user engagement, accessibility, and application performance.",
+    "Linkedin": "https://www.linkedin.com/in/swati-tonge24/"
+  },
+  {
+    "name": "Jibin John ",
+    "image": "/Team/jibin.jpg",
+    "position": "Software Developer",
+    "description": " Jibin John has hands-on experience working with React and Python Django, having successfully contributed to several projects utilizing these technologies. I recently completed my MSc in Information Systems with Computing  in which I gained a strong foundation in software development, web technologies, and data management. Throughout my academic journey, I worked on various practical assignments and projects that enhanced my skills in front-end and back-end development. I am eager to apply my knowledge in real-world scenarios and further grow my expertise in the tech industry.",
+    "Linkedin": "https://www.linkedin.com/in/jibinjohn123/"
+  },
+  {
+    "name": "Theophilus Uchechukwu",
+    "image": "/Team/Uchechukwu_photo.jpg",
+    "position": "FullStack Software Engineer ",
+    "description": "Hello! I'm Theophilus Uchechukwu, a FullStack Software Engineer with over five years of experience and a Junior Data Scientist. I specialize in backend development using C#, dotnet, Python, Django, Node.js, and NestJS, and frontend development with React.js, Next.js, Blazor Server, and Blazor WebAssembly. I have over four years of experience as an Electrical and Electronic Engineer, designing robust systems and optimizing performance. I've completed the CCNA certification course and have strong expertise in computer networking, network security, and DevOps. I'm passionate about AI, ML, Robotics, and Web 3, actively exploring these fields to enhance my skills and solve complex challenges.",
+    "Linkedin": "https://www.linkedin.com/in/theophilus-uchechukwu/"
+  }
+]
