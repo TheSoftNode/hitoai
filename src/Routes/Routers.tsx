@@ -1,4 +1,6 @@
 import About from '@/pages/About';
+import AdminDashboard from '@/pages/AdminDashboard';
+import APIsPage from '@/pages/APIsPage';
 import ContactPage from '@/pages/ContactPage';
 import Docs from '@/pages/DocsPage';
 import Landing from '@/pages/Landing';
@@ -19,6 +21,8 @@ const Routers = () =>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/apis" element={<APIsPage />} />
     </Routes>
 };
 
