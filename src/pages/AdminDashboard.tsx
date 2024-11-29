@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+// @ts-ignore
 import { Bell, Users, Briefcase, UserPlus, Settings, Search, MoreVertical, AlertTriangle, CheckCircle } from 'lucide-react';
 import {
   Card,
@@ -15,7 +16,8 @@ import {
 } from "@/components/ui/tabs";
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('overview');
+  // const [activeTab, setActiveTab] = useState('overview');
+  // @ts-ignore
   const [notifications, setNotifications] = useState([
     { id: 1, type: 'new-client', message: 'New client registration: Tech Solutions Inc.', time: '5m ago' },
     { id: 2, type: 'task-complete', message: 'Sarah completed the AI Model Training task', time: '1h ago' },
