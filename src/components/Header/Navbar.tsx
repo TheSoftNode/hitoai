@@ -9,7 +9,8 @@ const Navbar = () =>
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // Replace with your auth state
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [mobileDrop, setMobileDrop] = useState('');
 
     const products = [
         { name: 'SUSNET™', path: '/susnet' },
@@ -20,13 +21,19 @@ const Navbar = () =>
         { name: 'Ai4Physio', path: '/ai4physio' },
     ];
 
+    const contactOptions = [
+        { name: 'Contact as Investor', path: '/contact?type=investor' },
+        { name: 'Contact as Client', path: '/contact' },
+    ];
+
     const navItems = [
         { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
         { name: 'Documentations', path: '/documentation' },
-        { name: 'Products', path: '', hasDropdown: true },
+        { name: 'Products', path: '', hasDropdown: true, dropdownItems: products },
         { name: 'Services', path: '/services' },
         { name: 'APIs', path: '/apis' },
+        { name: 'Contact', path: '', hasDropdown: true, dropdownItems: contactOptions },
     ];
 
     useEffect(() =>
@@ -65,8 +72,7 @@ const Navbar = () =>
     }, []);
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-blue-950/90 backdrop-blur-md shadow-lg' : 'bg-gradient-to-br from-blue-950 to-indigo-900'
-            }`}>
+        <nav className={`fixed w-full z-[200] transition-all duration-300 ${isScrolled ? 'bg-blue-950/90 backdrop-blur-md shadow-lg' : 'bg-gradient-to-br from-blue-950 to-indigo-900'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo Section */}
@@ -99,21 +105,26 @@ const Navbar = () =>
                         <div className="flex items-center space-x-6">
                             {navItems.map((item) => (
                                 <div key={item.name} className="relative dropdown-container">
-                                    <Link
-                                        to={item.path}
-                                        className="text-blue-200 hover:text-white transition-colors flex items-center space-x-1"
-                                        onClick={() => item.hasDropdown && handleDropdownClick(item.name)}
-                                        onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                                    >
-                                        <span>{item.name}</span>
-                                        {item.hasDropdown && (
+                                    {item.hasDropdown ? (
+                                        <button
+                                            className="text-blue-200 hover:text-white transition-colors flex items-center space-x-1"
+                                            onClick={() => handleDropdownClick(item.name)}
+                                            onMouseEnter={() => setActiveDropdown(item.name)}
+                                        >
+                                            <span>{item.name}</span>
                                             <ChevronDown
                                                 size={16}
-                                                className={`transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                                                    }`}
+                                                className={`transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`}
                                             />
-                                        )}
-                                    </Link>
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            to={item.path}
+                                            className="text-blue-200 hover:text-white transition-colors flex items-center space-x-1"
+                                        >
+                                            <span>{item.name}</span>
+                                        </Link>
+                                    )}
 
                                     {item.hasDropdown && activeDropdown === item.name && (
                                         <div
@@ -121,13 +132,13 @@ const Navbar = () =>
                                             onMouseLeave={() => setActiveDropdown('')}
                                         >
                                             <div className="py-2">
-                                                {products.map((product) => (
+                                                {item.dropdownItems.map((dropItem) => (
                                                     <Link
-                                                        key={product.path}
-                                                        to={product.path}
+                                                        key={dropItem.path}
+                                                        to={dropItem.path}
                                                         className="block w-full px-4 py-2 text-sm text-blue-200 hover:bg-blue-500/20 hover:text-white transition-colors text-left"
                                                     >
-                                                        {product.name}
+                                                        {dropItem.name}
                                                     </Link>
                                                 ))}
                                             </div>
@@ -202,8 +213,7 @@ const Navbar = () =>
 
             {/* Mobile Menu */}
             <div
-                className={`lg:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-                    } overflow-hidden bg-blue-950/95 backdrop-blur-md`}
+                className={`lg:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden bg-blue-950/95 backdrop-blur-md`}
             >
                 <div className="px-4 pt-2 pb-6 space-y-4">
                     <form onSubmit={handleSearch} className="relative">
@@ -222,34 +232,64 @@ const Navbar = () =>
                     <div className="space-y-1">
                         {navItems.map((item) => (
                             <div key={item.name}>
-                                <Link
-                                    to={item.path}
-                                    onClick={() => item.hasDropdown ? handleDropdownClick(item.name) : setIsMobileMenuOpen(false)}
-                                    className="flex items-center justify-between w-full px-4 py-2 text-left text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
-                                >
-                                    <span>{item.name}</span>
-                                    {item.hasDropdown && (
-                                        <ChevronDown
-                                            size={16}
-                                            className={`transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                                                }`}
-                                        />
-                                    )}
-                                </Link>
+                                {item.hasDropdown ? (
+                                    <>
+                                        <button
+                                            onClick={() =>
+                                            {
+                                                setMobileDrop(mobileDrop === item.name ? '' : item.name);
+                                            }}
+                                            className="flex items-center justify-between w-full px-4 py-2 text-left text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
+                                        >
+                                            <span>{item.name}</span>
+                                            <ChevronDown
+                                                size={16}
+                                                className={`transition-transform duration-200 ${mobileDrop === item.name ? 'rotate-180' : ''}`}
+                                            />
+                                        </button>
 
-                                {item.hasDropdown && activeDropdown === item.name && (
-                                    <div className="pl-4 space-y-1 mt-1">
-                                        {products.map((product) => (
-                                            <Link
-                                                key={product.path}
-                                                to={product.path}
-                                                className="block px-4 py-2 text-sm text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                            >
-                                                {product.name}
-                                            </Link>
-                                        ))}
-                                    </div>
+                                        <div
+                                            className={`pl-4 space-y-1 mt-1 transition-all duration-200 ${mobileDrop === item.name ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                                                }`}
+                                        >
+                                            {item.dropdownItems.map((dropItem) => (
+                                                <Link
+                                                    key={dropItem.path}
+                                                    to={dropItem.path}
+                                                    className="block px-4 py-2 text-sm text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
+                                                    onClick={() =>
+                                                    {
+                                                        setMobileDrop('');
+                                                        setIsMobileMenuOpen(false);
+                                                    }}
+                                                >
+                                                    {dropItem.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                        {/* {activeDropdown === item.name && (
+                                            <div className="pl-4 space-y-1 mt-1">
+                                                {item.dropdownItems.map((dropItem) => (
+                                                    <Link
+                                                        key={dropItem.path}
+                                                        to={dropItem.path}
+                                                        className="block px-4 py-2 text-sm text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                    >
+                                                        {dropItem.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )} */}
+                                    </>
+                                ) : (
+                                    <Link
+                                        to={item.path}
+                                        className="block px-4 py-2 text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {item.name}
+                                    </Link>
                                 )}
                             </div>
                         ))}
