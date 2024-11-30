@@ -1,6 +1,7 @@
 import { Brain, Network, MessageSquare, Eye, Server, ArrowRight } from 'lucide-react';
 
-const APIsPage = () => {
+const APIsPage = () =>
+{
   const apiCategories = [
     {
       icon: Server,
@@ -119,7 +120,7 @@ const APIsPage = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {category.apis.map((api, apiIndex) => (
-                    <div 
+                    <div
                       key={apiIndex}
                       className="group p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-300 hover:shadow-md"
                     >

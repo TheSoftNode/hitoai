@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import susnet from "../../assets/Sunnet/susnet.jpg"
+import selwel from "../../assets/selwell/selwel.jpg"
+import seculla from "../../assets/Secuall/seculla.jpg"
 
 const products = [
     {
         title: "SUSNET™",
         description:
             "HitoAI's flagship AI-powered sustainable energy management system designed to optimize energy usage, ensuring efficiency and sustainability.",
-        image: "/api/placeholder/800/400",
+        image: susnet,
         tags: ["Energy Efficient", "AI-Powered", "Green Tech"],
         stats: {
             efficiency: "98%",
@@ -22,7 +25,7 @@ const products = [
         title: "SELWEL",
         description:
             "An advanced trading platform designed for financial institutions to optimize profits and reduce risks in global share trading.",
-        image: "/api/placeholder/800/400",
+        image: selwel,
         tags: ["FinTech", "Real-time Analytics", "AI Trading"],
         stats: {
             accuracy: "99.9%",
@@ -36,7 +39,7 @@ const products = [
         title: "SECUALL",
         description:
             "AI-powered dashcams and home security cameras designed to enhance security using AI and computer vision.",
-        image: "/api/placeholder/800/400",
+        image: seculla,
         tags: ["Security", "AI Vision", "Smart Home"],
         stats: {
             detection: "99.8%",

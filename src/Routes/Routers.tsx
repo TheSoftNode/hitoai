@@ -7,7 +7,10 @@ import Docs from '@/pages/DocsPage';
 import Landing from '@/pages/Landing';
 import LoginPage from '@/pages/Login';
 import RegisterPage from '@/pages/Register';
+import Secuall from '@/pages/Secaull/Secaull';
+import Selwel from '@/pages/Selwel/Selwel';
 import Services from '@/pages/Services';
+import SusNet from '@/pages/SusNet/SusNet';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -25,6 +28,9 @@ const Routers = () =>
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin2" element={<MainDashboard />} />
         <Route path="/apis" element={<APIsPage />} />
+        <Route path="/selwell" element={<Selwel />} />
+        <Route path="/susnet" element={<SusNet />} />
+        <Route path="/secuall" element={<Secuall />} />
     </Routes>
 };
 
