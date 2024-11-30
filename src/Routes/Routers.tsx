@@ -1,3 +1,4 @@
+import MainDashboard from '@/components/Admin/MainDashboard';
 import About from '@/pages/About';
 import AdminDashboard from '@/pages/AdminDashboard';
 import APIsPage from '@/pages/APIsPage';
@@ -22,6 +23,7 @@ const Routers = () =>
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin2" element={<MainDashboard />} />
         <Route path="/apis" element={<APIsPage />} />
     </Routes>
 };

@@ -23,7 +23,7 @@ const Footer = () =>
     );
 
     return (
-        <footer className="relative bg-gradient-to-br z-50 from-gray-900 to-blue-900 text-white">
+        <footer className="relative bg-gradient-to-br z-40 from-gray-900 to-blue-900 text-white">
             {/* Newsletter Section */}
             {/* <div className="absolute py-8 -top-10 w-full">
                 <div className="max-w-7xl mx-auto px-4 py-6 transform -translate-y-1/2 bg-blue-600 rounded-lg shadow-xl">

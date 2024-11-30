@@ -5,12 +5,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Employee } from "@/lib/types";
+import { Project } from "@/lib/types";
 
 interface CreateProjectFormProps {
   onSubmit: (project: any) => void;
   onCancel: () => void;
   clients: { id: string; company: string }[];
   employees: Employee[];
+  initialData?: Project | null;
 }
 
 const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ onSubmit, onCancel, clients, employees }) => {

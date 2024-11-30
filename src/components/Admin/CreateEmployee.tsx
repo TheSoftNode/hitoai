@@ -6,11 +6,13 @@ import {
     DialogFooter,
   } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
+import { Employee } from "@/lib/types";
 
 
 interface CreateEmployeeFormProps {
   onSubmit: (data: any) => void;
   onCancel: () => void;
+  initialData?: Employee | null;
 }
 
 const CreateEmployeeForm: React.FC<CreateEmployeeFormProps> = ({ onSubmit, onCancel }) => {

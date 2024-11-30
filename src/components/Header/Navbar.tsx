@@ -72,7 +72,7 @@ const Navbar = () =>
     }, []);
 
     return (
-        <nav className={`fixed w-full z-[200] transition-all duration-300 ${isScrolled ? 'bg-blue-950/90 backdrop-blur-md shadow-lg' : 'bg-gradient-to-br from-blue-950 to-indigo-900'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-blue-950/90 backdrop-blur-md shadow-lg' : 'bg-gradient-to-br from-blue-950 to-indigo-900'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo Section */}

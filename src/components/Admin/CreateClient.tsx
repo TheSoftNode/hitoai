@@ -3,10 +3,12 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
+import { Client } from "@/lib/types";
 
 interface CreateClientFormProps {
   onSubmit: (data: any) => void;
   onCancel: () => void;
+  initialData?: Client | null;
 }
 
 const CreateClientForm: React.FC<CreateClientFormProps> = ({ onSubmit, onCancel }) => {

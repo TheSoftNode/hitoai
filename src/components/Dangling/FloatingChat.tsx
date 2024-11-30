@@ -2,14 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Minimize2, Send, User, Bot, Loader } from 'lucide-react';
 import { GPT } from '../../config/config';
 
-interface Message {
+interface Message
+{
     id: string;
     type: 'user' | 'bot';
     content: string;
     timestamp: Date;
 }
 
-interface FloatingChatProps {
+interface FloatingChatProps
+{
     position?: 'bottom-right' | 'bottom-left';
     companyName?: string;
     greeting?: string;
@@ -21,7 +23,8 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
     companyName = 'HItoAI Support',
     greeting = 'Welcome to HItoAI! How can we assist you with our AI solutions today?',
     placeholder = 'Type your message here...'
-}) => {
+}) =>
+{
     const [isOpen, setIsOpen] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
@@ -39,30 +42,34 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
     const chatContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLTextAreaElement>(null);
 
-    useEffect(() => {
+    useEffect(() =>
+    {
         scrollToBottom();
     }, [messages, isOpen]);
 
-    const scrollToBottom = () => {
+    const scrollToBottom = () =>
+    {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) =>
+    {
         e.preventDefault();
         if (!inputValue.trim()) return;
-    
+
         const newMessage: Message = {
             id: Date.now().toString(),
             type: 'user',
             content: inputValue.trim(),
             timestamp: new Date()
         };
-    
+
         setMessages(prev => [...prev, newMessage]);
         setInputValue('');
         setIsTyping(true);
-    
-        try {
+
+        try
+        {
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -74,28 +81,32 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
                     messages: [{ role: "user", content: inputValue.trim() }]
                 })
             });
-    
-            if (!response.ok) {
+
+            if (!response.ok)
+            {
                 throw new Error(`Error ${response.status}: ${response.statusText}`);
             }
-    
+
             const data = await response.json();
-            
-            if (data.choices && data.choices[0] && data.choices[0].message.content) {
+
+            if (data.choices && data.choices[0] && data.choices[0].message.content)
+            {
                 const botMessage = data.choices[0].message.content;
-    
+
                 const botResponse: Message = {
                     id: (Date.now() + 1).toString(),
                     type: 'bot',
                     content: botMessage,
                     timestamp: new Date()
                 };
-    
+
                 setMessages(prev => [...prev, botResponse]);
-            } else {
+            } else
+            {
                 throw new Error("No content in response from GPT");
             }
-        } catch (error) {
+        } catch (error)
+        {
             console.error("Error fetching GPT response:", error);
             const errorMessage: Message = {
                 id: (Date.now() + 1).toString(),
@@ -104,22 +115,27 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
                 timestamp: new Date()
             };
             setMessages(prev => [...prev, errorMessage]);
-        } finally {
+        } finally
+        {
             setIsTyping(false);
         }
     };
 
-    const handleKeyPress = (e: React.KeyboardEvent) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
+    const handleKeyPress = (e: React.KeyboardEvent) =>
+    {
+        if (e.key === 'Enter' && !e.shiftKey)
+        {
             e.preventDefault();
             handleSubmit(e);
         }
     };
 
-    const toggleChat = () => {
+    const toggleChat = () =>
+    {
         setIsOpen(!isOpen);
         setIsMinimized(false);
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             inputRef.current?.focus();
         }, 100);
     };
@@ -158,7 +174,7 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
             </style>
             <button
                 onClick={toggleChat}
-                className={`chat-button fixed z-50 bottom-6 sm:bottom-8 ${positionClasses} w-14 h-14 rounded-full 
+                className={`chat-button fixed z-[3000] bottom-6 sm:bottom-8 ${positionClasses} w-14 h-14 rounded-full 
                 flex justify-center items-center text-white transition-all duration-300 focus:outline-none 
                 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-500 
                 bg-gradient-to-r from-blue-500 to-purple-500`}
@@ -198,8 +214,8 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
 
                     {!isMinimized && (
                         <>
-                            <div className="flex-1 p-4 overflow-y-auto bg-gradient-to-br from-blue-50 to-purple-50" 
-                                 style={{ height: 'calc(100% - 120px)' }}>
+                            <div className="flex-1 p-4 overflow-y-auto bg-gradient-to-br from-blue-50 to-purple-50"
+                                style={{ height: 'calc(100% - 120px)' }}>
                                 {messages.map((message) => (
                                     <div
                                         key={message.id}
@@ -215,16 +231,14 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
                                             )}
                                         </div>
                                         <div
-                                            className={`max-w-[75%] rounded-2xl px-4 py-2 ${
-                                                message.type === 'user'
+                                            className={`max-w-[75%] rounded-2xl px-4 py-2 ${message.type === 'user'
                                                     ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
                                                     : 'bg-white shadow-sm'
-                                            }`}
+                                                }`}
                                         >
                                             {message.content}
-                                            <div className={`text-xs mt-1 ${
-                                                message.type === 'user' ? 'text-blue-100' : 'text-gray-400'
-                                            }`}>
+                                            <div className={`text-xs mt-1 ${message.type === 'user' ? 'text-blue-100' : 'text-gray-400'
+                                                }`}>
                                                 {message.timestamp.toLocaleTimeString([], {
                                                     hour: '2-digit',
                                                     minute: '2-digit'
@@ -261,11 +275,10 @@ const FloatingChat: React.FC<FloatingChatProps> = ({
                                         type="submit"
                                         disabled={!inputValue.trim()}
                                         className={`absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
-                                        transition-all duration-200 ${
-                                            inputValue.trim()
+                                        transition-all duration-200 ${inputValue.trim()
                                                 ? 'text-purple-500 hover:bg-purple-50'
                                                 : 'text-gray-300'
-                                        }`}
+                                            }`}
                                     >
                                         <Send className="w-5 h-5" />
                                     </button>
