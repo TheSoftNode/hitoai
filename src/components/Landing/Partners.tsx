@@ -1,13 +1,22 @@
+
+
 import { easeOut, motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import PartnersData from '../../assets/data/partners.json';
 import Investors from '../../assets/data/investors.json';
 
-export default function Partners()
-{
-    // Animation variants for the headings - increased initial x offset
+export default function Partners() {
+    const [duplicatedPartners, setDuplicatedPartners] = useState<{ image: string }[]>([]);
+    
+    useEffect(() => {
+        // Duplicate the partners array to create a seamless loop
+        setDuplicatedPartners([...PartnersData, ...PartnersData]);
+    }, []);
+
+    // Animation variants for the headings
     const headingVariants = {
         hidden: {
-            x: '-200%', // Start from viewport width to ensure it comes from far left
+            x: '-200%',
             opacity: 0
         },
         visible: {
@@ -25,7 +34,7 @@ export default function Partners()
     // Animation variants for the grid items
     const itemVariants = {
         hidden: {
-            y: 100,  // Increased offset for more dramatic animation
+            y: 100,
             opacity: 0
         },
         visible: {
@@ -52,65 +61,66 @@ export default function Partners()
     };
 
     return (
-        <div className="flex flex-col items-center justify-center bg-gray-100 px-2 pt-20 pb-28">
+        <div className="flex flex-col items-center justify-center bg-gray-100 px-2 pt-20 pb-24">
             <motion.h1
                 variants={headingVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.1 }} // Set once to false to repeat animations
+                viewport={{ once: false, amount: 0.1 }}
                 className="mb-6 text-center text-base md:text-2xl lg:text-3xl font-sans font-bold leading-tight text-gray-800"
             >
                 Our Partners
             </motion.h1>
 
-            <motion.div
-                className="hard-skills flex flex-wrap items-center justify-center mb-10"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.3 }} // Set once to false to repeat animations
-            >
-                {PartnersData.map((slide, index) => (
+            {/* Partners Carousel */}
+            <div className="w-full overflow-hidden mb-20">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="relative w-full"
+                >
                     <motion.div
-                        className="hability mx-2 mb-4"
-                        key={index}
-                        variants={itemVariants}
+                        className="flex"
+                        animate={{
+                            x: [0, -50 * duplicatedPartners.length],
+                        }}
+                        transition={{
+                            x: {
+                                duration: 25,
+                                repeat: Infinity,
+                                ease: "linear",
+                            },
+                        }}
                     >
-                        <motion.div
-                            className="p-2 bg-white rounded-lg shadow-lg"
-                            whileHover={{
-                                scale: 1.05,
-                                transition: { duration: 0.2 }
-                            }}
-                        >
-                            <img
-                                src={slide.image}
-                                alt="Partner"
-                                className="w-24 h-24 object-contain"
-                            />
-                        </motion.div>
+                        {duplicatedPartners.map((partner, index) => (
+                            <motion.div
+                                key={index}
+                                className="flex-shrink-0 mx-2"
+                                whileHover={{
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                }}
+                            >
+                                <div className="bg-white p-2 rounded-lg shadow-lg min-w-12 h-20 flex items-center justify-center">
+                                    <img
+                                        src={partner.image}
+                                        alt="Partner"
+                                        className="max-w-full max-h-full object-contain"
+                                    />
+                                </div>
+                            </motion.div>
+                        ))}
                     </motion.div>
-                ))}
-            </motion.div>
-
-            {/* <div className="w-full overflow-hidden"> {/* Add this wrapper div  */}
-            {/* <motion.h1
-                variants={headingVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                className="mb-6 text-center text-4xl md:text-3xl lg:text-4xl font-sans font-bold leading-tight text-gray-800"
-            >
-                Our Investors and Accelerators
-            </motion.h1> */}
-            {/* </div> */}
+                </motion.div>
+            </div>
 
             <motion.h1
                 variants={headingVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.1 }} // Set once to false to repeat animations
-                className="mb-6 text-center text-base md:text-3xl lg:text-4xl font-sans font-bold leading-tight text-gray-800"
+                viewport={{ once: false, amount: 0.1 }}
+                className="mb-5 text-center text-base md:text-3xl lg:text-4xl font-sans font-bold leading-tight text-gray-800"
             >
                 Our Investors
             </motion.h1>
@@ -120,7 +130,7 @@ export default function Partners()
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, margin: "-100px" }} // Set once to false to repeat animations
+                viewport={{ once: false, margin: "-100px" }}
             >
                 {Investors.map((slide, index) => (
                     <motion.div
@@ -138,7 +148,7 @@ export default function Partners()
                             <img
                                 src={slide.image}
                                 alt="Investor"
-                                className="w-24 h-24 object-contain"
+                                className="min-w-12 h-20 object-fit"
                             />
                         </motion.div>
                     </motion.div>
@@ -147,3 +157,4 @@ export default function Partners()
         </div>
     );
 }
+

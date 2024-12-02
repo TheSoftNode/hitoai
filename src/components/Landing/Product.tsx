@@ -1,10 +1,16 @@
+
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import susnet from "../../assets/Sunnet/susnet.jpg"
-import selwel from "../../assets/selwell/selwel.jpg"
-import seculla from "../../assets/Secuall/seculla.jpg"
+
+import susnet from "../../assets/Sunnet/logo2.png"
+import selwel from "../../assets/selwell/logo1.png"
+import seculla from "../../assets/Secuall/logo2.png"
+import two3d from "../../assets/223D/logo.png"
+import knomed from "../../assets/Knomed/logo.png"
+import Ai4physio from "../../assets/Ai4Physio/logo.png"
 
 const products = [
     {
@@ -67,7 +73,7 @@ const products = [
         title: "223D",
         description:
             "Generates 3D assets using AI for gaming and VR applications, offering limitless creativity.",
-        image: "/api/placeholder/800/400",
+        image: two3d,
         tags: ["3D Generation", "Gaming", "VR"],
         stats: {
             quality: "4.8/5",
@@ -81,7 +87,7 @@ const products = [
         title: "KNOMED",
         description:
             "An AI tool for enhancing patient care and outcomes through data-driven insights.",
-        image: "/api/placeholder/800/400",
+        image: knomed,
         tags: ["Healthcare", "AI", "Analytics"],
         stats: {
             accuracy: "99.7%",
@@ -95,7 +101,7 @@ const products = [
         title: "AI4Physio",
         description:
             "A revolutionary solution for physiotherapy, utilizing AI for personalized rehabilitation.",
-        image: "/api/placeholder/800/400",
+        image: Ai4physio,
         tags: ["Healthcare", "AI", "Rehabilitation"],
         stats: {
             recovery: "+65%",
@@ -148,7 +154,6 @@ const Product = () =>
             </motion.h2>
 
             <div className="relative w-full max-w-7xl">
-                {/* Navigation Buttons */}
                 <button
                     onClick={prevSlide}
                     className="absolute left-0 lg:left-8 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 bg-white rounded-full p-1 md:p-3 shadow-lg hover:bg-gray-100 transition-all"
@@ -162,7 +167,6 @@ const Product = () =>
                     <ChevronRight className="w-6 h-6 text-gray-800" />
                 </button>
 
-                {/* Products Container */}
                 <div className="overflow-hidden px-4 py-10">
                     <motion.div
                         className="flex gap-6 justify-center"
@@ -180,22 +184,28 @@ const Product = () =>
                                     className="w-full lg:w-80 flex-shrink-0 flex"
                                 >
                                     <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:transform hover:scale-105 transition-all duration-300 flex flex-col w-full">
-                                        {/* Image Section */}
-                                        <div className="relative h-48 w-full overflow-hidden">
-                                            <img
-                                                src={product.image}
-                                                alt={product.title}
-                                                className="w-full h-full object-cover"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                                            <h3 className="absolute bottom-4 left-4 text-2xl font-bold text-white">
-                                                {product.title}
-                                            </h3>
+                                        {/* Modified Logo Section */}
+                                        <div className="relative h-48 w-full bg-gray-50 flex items-center justify-center p-8">
+                                            <div className="relative w-full h-full flex items-center justify-center">
+                                                <img
+                                                    src={product.image}
+                                                    alt={product.title}
+                                                    className="max-w-full max-h-full object-contain"
+                                                    style={{
+                                                        filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))'
+                                                    }}
+                                                />
+                                            </div>
+                                            <div
+                                                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-50 to-transparent h-12 flex items-end"
+                                            >
+                                                <h3 className="w-full text-center text-2xl font-bold text-gray-800 pb-2">
+                                                    {product.title}
+                                                </h3>
+                                            </div>
                                         </div>
 
-                                        {/* Content Section */}
                                         <div className="p-6 flex flex-col flex-grow">
-                                            {/* Tags */}
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 {product.tags.map((tag, i) => (
                                                     <Badge
@@ -212,7 +222,6 @@ const Product = () =>
                                                 {product.description}
                                             </p>
 
-                                            {/* Stats Grid */}
                                             <div className="grid grid-cols-3 gap-4 mb-6">
                                                 {Object.entries(product.stats).map(([key, value]) => (
                                                     <div key={key} className="text-center">
@@ -241,7 +250,6 @@ const Product = () =>
                     </motion.div>
                 </div>
 
-                {/* Pagination Dots */}
                 <div className="flex justify-center gap-2 mt-8">
                     {Array.from({ length: totalPages }).map((_, index) => (
                         <button

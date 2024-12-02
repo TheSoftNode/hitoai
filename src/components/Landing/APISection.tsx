@@ -11,7 +11,7 @@ const APISection = () =>
         },
         {
             icon: Brain,
-            title: 'ML & AI APIs',
+            title: 'ML & DL APIs',
             description: 'Advanced prediction, anomaly detection, and recommendation systems powered by cutting-edge algorithms.',
             gradient: 'from-purple-400 to-pink-500'
         },

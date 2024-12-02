@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import homeai from "../../assets/img.png"
+import homeai from "../../assets/Landing/img.png"
 
 const HeroSection = () =>
 {

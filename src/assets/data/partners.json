@@ -1,31 +1,44 @@
 [
-    {
-      "image": "/Team/f6s.jpeg"
-    },
-    {
-      "image": "/Team/leo.jpeg"
-    },
-    {
-      "image": "/Team/google.jpeg"
-    },
-    {
-      "image": "/Team/github.jpeg"
-    },
-    {
-      "image": "/Team/intercom.jpeg"
-    },
-    {
-     "image": "/Team/github.jpeg"
-    },
-    {
-     "image": "/Team/okta.jpeg"
-
-    },
-    {
-   "image": "/Team/mongo.jpeg"
-    },
-    {
+  {
+    "image": "/Team/f6s.jpeg"
+  },
+  {
+    "image": "/Team/leo.jpeg"
+  },
+  {
+    "image": "/Team/google.jpeg"
+  },
+  {
+    "image": "/Team/github.jpeg"
+  },
+  {
+    "image": "/Team/intercom.jpeg"
+  },
+  {
+    "image": "/Team/github.jpeg"
+  },
+  {
+    "image": "/Team/okta.jpeg"
+  },
+  {
+    "image": "/Team/mongo.jpeg"
+  },
+  {
     "image": "/Team/biasadra.jpg"
-    } 
-  ]
-  
+  },
+  {
+    "image": "/Team/aws.jpg"
+  },
+  {
+    "image": "/Team/thingspeak.png"
+  },
+  {
+    "image": "/Team/firebase.png"
+  },
+  {
+    "image": "/Team/render.png"
+  },
+  {
+    "image": "/Team/microsoft.png"
+  }
+]
