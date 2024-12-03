@@ -6,6 +6,12 @@ const ContactPage = () => {
   const [searchParams] = useSearchParams();
   const [isInvestor, setIsInvestor] = useState(false);
 
+  useEffect(() =>
+    {
+        window.scrollTo(0, 0);
+    }, []);
+
+    
   useEffect(() => {
     setIsInvestor(searchParams.get('type') === 'investor');
   }, [searchParams]);

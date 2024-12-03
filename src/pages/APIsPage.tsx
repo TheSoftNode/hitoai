@@ -1,7 +1,13 @@
 import { Brain, Network, MessageSquare, Eye, Server, ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
 
 const APIsPage = () =>
 {
+  useEffect(() =>
+    {
+        window.scrollTo(0, 0);
+    }, []);
+
   const apiCategories = [
     {
       icon: Server,

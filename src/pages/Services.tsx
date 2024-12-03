@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Cpu, Cloud, Database, LineChart, Zap, Shield, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,14 +6,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-interface ServiceCardProps {
+interface ServiceCardProps
+{
   title: string;
   description: string;
   icon: React.ElementType;
   index: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Icon, index }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Icon, index }) =>
+{
   const variants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
@@ -36,20 +38,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
       className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity" />
-      
+
       <div className="relative z-10">
         <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500">
           <Icon className="h-7 w-7 text-white" />
         </div>
-        
+
         <h3 className="mb-4 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
           {title}
         </h3>
-        
+
         <p className="mb-6 text-gray-600 leading-relaxed">
           {description}
         </p>
-        
+
         <Button
           variant="ghost"
           className="group/btn flex items-center gap-2 text-blue-600 hover:text-purple-600 transition-colors"
@@ -62,7 +64,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
   );
 };
 
-const Services = () => {
+const Services = () =>
+{
+  useEffect(() =>
+  {
+    window.scrollTo(0, 0);
+  }, []);
+
   const services = [
     {
       icon: Cpu,
@@ -151,7 +159,7 @@ const Services = () => {
             <h2 className="text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
               Schedule a Consultation
             </h2>
-            
+
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="text" placeholder="Full Name" className="w-full" />
@@ -170,12 +178,12 @@ const Services = () => {
                   </SelectContent>
                 </Select>
               </div>
-              
+
               <Textarea
                 placeholder="Tell us about your project"
                 className="w-full min-h-[120px]"
               />
-              
+
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-6"

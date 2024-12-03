@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,12 @@ import { Link } from 'react-router-dom';
 const RegisterPage = () =>
 {
     const [showPassword, setShowPassword] = useState(false);
+
+    useEffect(() =>
+    {
+        window.scrollTo(0, 0);
+    }, []);
+
 
     const RegisterForm = ({ userType }: { userType: string }) => (
         <form className="space-y-4">

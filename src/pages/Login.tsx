@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
@@ -8,6 +8,12 @@ import { Input } from '@/components/ui/input';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() =>
+    {
+        window.scrollTo(0, 0);
+    }, []);
+
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
