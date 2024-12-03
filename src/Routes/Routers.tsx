@@ -3,6 +3,7 @@ import TwoTwentyThreeD from '@/pages/223D/TwoTwentyThreeD';
 import About from '@/pages/About';
 import AdminDashboard from '@/pages/AdminDashboard';
 import AI4Physio from '@/pages/AI4Physio/AI4Physio';
+import Aimarcom from '@/pages/AIMarcom/Aimarcom';
 import APIsPage from '@/pages/APIsPage';
 import ContactPage from '@/pages/ContactPage';
 import Docs from '@/pages/DocsPage';
@@ -36,7 +37,7 @@ const Routers = () =>
         <Route path="/secuall" element={<Secuall />} />
         <Route path="/ai4physio" element={<AI4Physio />} />
         <Route path="/knomed" element={<Knomed />} />
-        <Route path="/knomed" element={<Knomed />} />
+        <Route path="/aimarcom" element={<Aimarcom />} />
         <Route path="/223d" element={<TwoTwentyThreeD />} />
 
     </Routes>
