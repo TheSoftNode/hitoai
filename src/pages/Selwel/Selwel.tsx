@@ -1,4 +1,4 @@
-import{ useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Brain, ChartLine, Shield, Zap } from 'lucide-react';
@@ -11,12 +11,15 @@ import Image4 from "../../assets/selwell/statistical.webp";
 
 import { ReactNode } from 'react';
 
-const FadeInWhenVisible = ({ children, delay = 0 }: { children: ReactNode, delay?: number }) => {
+const FadeInWhenVisible = ({ children, delay = 0 }: { children: ReactNode, delay?: number }) =>
+{
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.3 });
 
-  useEffect(() => {
-    if (inView) {
+  useEffect(() =>
+  {
+    if (inView)
+    {
       controls.start('visible');
     }
   }, [controls, inView]);
@@ -37,7 +40,13 @@ const FadeInWhenVisible = ({ children, delay = 0 }: { children: ReactNode, delay
   );
 };
 
-const Selwel = () => {
+const Selwel = () =>
+{
+  useEffect(() =>
+  {
+    window.scrollTo(0, 0);
+  }, [])
+
   const features = [
     {
       icon: Brain,
@@ -60,9 +69,9 @@ const Selwel = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 overflow-hidden">
+    <div className=" bg-gray-50 overflow-hidden">
       {/* Hero Section */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -70,12 +79,25 @@ const Selwel = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-8"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute top-7 right-8 inline-flex items-center space-x-2 bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full z-10"
+              >
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                </span>
+                <span>Coming Soon</span>
+              </motion.div>
+              
               <h1 className="text-5xl md:text-6xl font-bold text-white">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
@@ -131,11 +153,11 @@ const Selwel = () => {
               className="relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-2xl"></div>
-              <motion.img 
+              <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
-                src={Image1} 
-                alt="Trading Platform Interface" 
+                src={Image1}
+                alt="Trading Platform Interface"
                 className="relative rounded-2xl shadow-2xl w-full object-cover"
               />
             </motion.div>
@@ -160,20 +182,20 @@ const Selwel = () => {
           {features.map((feature, index) => (
             <FadeInWhenVisible key={index} delay={0.2}>
               <div className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.5 }}
                   className="relative group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-500"></div>
-                  <img 
-                    src={feature.image} 
+                  <img
+                    src={feature.image}
                     alt={feature.title}
                     className="relative rounded-2xl shadow-lg w-full h-[400px] object-cover"
                   />
                 </motion.div>
                 <div className="space-y-6">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.8 }}
                     className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center"
@@ -202,7 +224,7 @@ const Selwel = () => {
       </div>
 
       {/* Coming Soon Section */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}

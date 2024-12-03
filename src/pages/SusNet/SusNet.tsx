@@ -3,6 +3,7 @@ import Image1 from '../../assets/Sunnet/SusNet_home1.jpg';
 import Image2 from '../../assets/Sunnet/artificial-intelligence_15777267.png';
 import Image3 from '../../assets/Sunnet/growth-report_5329415.png';
 import Image4 from '../../assets/Sunnet/component_14459238.png';
+import { useEffect } from 'react';
 
 const SusNet = () =>
 {
@@ -45,6 +46,11 @@ const SusNet = () =>
         }
     };
 
+    useEffect(() =>
+    {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-br from-teal-50/90 to-teal-100">
             {/* Hero Section */}
@@ -54,6 +60,18 @@ const SusNet = () =>
                 animate="visible"
                 className="flex flex-col md:flex-row items-center gap-8 py-16 px-4 md:px-12 lg:px-24"
             >
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="absolute top-24 right-8 inline-flex items-center space-x-2 bg-blue-500/50 text-white px-4 py-2 rounded-full z-10"
+                >
+                    <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                    </span>
+                    <span>Coming Soon</span>
+                </motion.div>
                 <motion.div
                     variants={itemVariants}
                     className="w-full md:w-1/2 space-y-6"

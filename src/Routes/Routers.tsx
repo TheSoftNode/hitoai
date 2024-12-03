@@ -1,6 +1,7 @@
 import MainDashboard from '@/components/Admin/MainDashboard';
 import About from '@/pages/About';
 import AdminDashboard from '@/pages/AdminDashboard';
+import AI4Physio from '@/pages/AI4Physio/AI4Physio';
 import APIsPage from '@/pages/APIsPage';
 import ContactPage from '@/pages/ContactPage';
 import Docs from '@/pages/DocsPage';
@@ -31,6 +32,7 @@ const Routers = () =>
         <Route path="/selwell" element={<Selwel />} />
         <Route path="/susnet" element={<SusNet />} />
         <Route path="/secuall" element={<Secuall />} />
+        <Route path="/ai4physio" element={<AI4Physio />} />
     </Routes>
 };
 

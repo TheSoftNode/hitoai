@@ -1,16 +1,16 @@
-
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Link } from 'react-router-dom';
 
-import susnet from "../../assets/Sunnet/logo2.png"
-import selwel from "../../assets/selwell/logo1.png"
-import seculla from "../../assets/Secuall/logo2.png"
-import two3d from "../../assets/223D/logo.png"
-import knomed from "../../assets/Knomed/logo.png"
-import Ai4physio from "../../assets/Ai4Physio/logo.png"
+import susnet from "../../assets/Sunnet/logo1.png";
+import selwel from "../../assets/selwell/logo1.png";
+import seculla from "../../assets/Secuall/logo2.png";
+import two3d from "../../assets/223D/logo.png";
+import knomed from "../../assets/Knomed/logo.png";
+import Ai4physio from "../../assets/Ai4Physio/logo.png";
+import aimarcom from "../../assets/AIMARCOM/logo.png";
 
 const products = [
     {
@@ -21,8 +21,7 @@ const products = [
         tags: ["Energy Efficient", "AI-Powered", "Green Tech"],
         stats: {
             efficiency: "98%",
-            satisfaction: "4.9/5",
-            installations: "10K+"
+            "Bill Cutting": "50-60%",
         },
         bgColor: "#009688",
         link: "/susnet",
@@ -35,8 +34,7 @@ const products = [
         tags: ["FinTech", "Real-time Analytics", "AI Trading"],
         stats: {
             accuracy: "99.9%",
-            transactions: "$2B+",
-            users: "50K+"
+            "annual  profitability": "20-50%"
         },
         bgColor: "#007ACC",
         link: "/selwell",
@@ -48,9 +46,8 @@ const products = [
         image: seculla,
         tags: ["Security", "AI Vision", "Smart Home"],
         stats: {
-            detection: "99.8%",
+            "Suspicious activitiy detection": ">90%",
             response: "<1s",
-            installations: "100K+"
         },
         bgColor: "#6A5ACD",
         link: "/secuall",
@@ -59,7 +56,7 @@ const products = [
         title: "AIMARCOM",
         description:
             "AI-driven personalization and recommendations to boost engagement and sales.",
-        image: "/api/placeholder/800/400",
+        image: aimarcom,
         tags: ["Marketing", "AI", "Analytics"],
         stats: {
             engagement: "+280%",
@@ -72,13 +69,13 @@ const products = [
     {
         title: "223D",
         description:
-            "Generates 3D assets using AI for gaming and VR applications, offering limitless creativity.",
+            "Generates 3D assets using AI for gaming and 3D printing, offering limitless creativity.",
         image: two3d,
         tags: ["3D Generation", "Gaming", "VR"],
         stats: {
             quality: "4.8/5",
-            speed: "2min",
-            assets: "1M+"
+            // speed: "2min",
+            "capability of asset generation": "2mins"
         },
         bgColor: "#4CAF50",
         link: "/223d",
@@ -91,8 +88,7 @@ const products = [
         tags: ["Healthcare", "AI", "Analytics"],
         stats: {
             accuracy: "99.7%",
-            hospitals: "500+",
-            patients: "1M+"
+            "anomalies detection": "<= 72hrs ahead"
         },
         bgColor: "#FF5722",
         link: "/knomed",
@@ -105,8 +101,7 @@ const products = [
         tags: ["Healthcare", "AI", "Rehabilitation"],
         stats: {
             recovery: "+65%",
-            satisfaction: "4.9/5",
-            clinics: "2000+"
+            " rehabilitation Enhancement": "up to 60%"
         },
         bgColor: "#9C27B0",
         link: "/ai4physio",
@@ -116,11 +111,32 @@ const products = [
 const Product = () =>
 {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const productsPerPage = 3;
+    const [direction, setDirection] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
+
+    // Determine number of products per page based on screen size
+    const getProductsPerPage = () => isMobile ? 1 : 3;
+
+    useEffect(() =>
+    {
+        const checkMobile = () =>
+        {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const productsPerPage = getProductsPerPage();
     const totalPages = Math.ceil(products.length / productsPerPage);
 
     const nextSlide = () =>
     {
+        setDirection(1);
         setCurrentIndex((prevIndex) =>
             prevIndex + productsPerPage >= products.length ? 0 : prevIndex + productsPerPage
         );
@@ -128,16 +144,58 @@ const Product = () =>
 
     const prevSlide = () =>
     {
+        setDirection(-1);
         setCurrentIndex((prevIndex) =>
-            prevIndex - productsPerPage < 0 ?
-                products.length - (products.length % productsPerPage || productsPerPage) :
-                prevIndex - productsPerPage
+            prevIndex - productsPerPage < 0
+                ? products.length - (products.length % productsPerPage || productsPerPage)
+                : prevIndex - productsPerPage
         );
     };
 
     const goToPage = (pageIndex: number) =>
     {
+        setDirection(pageIndex > currentIndex / productsPerPage ? 1 : -1);
         setCurrentIndex(pageIndex * productsPerPage);
+    };
+
+    // Touch handlers for mobile swipe
+    const handleTouchStart = (e: React.TouchEvent) =>
+    {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) =>
+    {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () =>
+    {
+        if (touchStart - touchEnd > 75)
+        {
+            // Swipe left
+            nextSlide();
+        }
+        if (touchStart - touchEnd < -75)
+        {
+            // Swipe right
+            prevSlide();
+        }
+    };
+
+    const variants = {
+        enter: (direction: number) => ({
+            x: direction > 0 ? 1000 : -1000,
+            opacity: 0
+        }),
+        center: {
+            x: 0,
+            opacity: 1
+        },
+        exit: (direction: number) => ({
+            x: direction > 0 ? -1000 : 1000,
+            opacity: 0
+        })
     };
 
     const visibleProducts = products.slice(currentIndex, currentIndex + productsPerPage);
@@ -167,24 +225,36 @@ const Product = () =>
                     <ChevronRight className="w-6 h-6 text-gray-800" />
                 </button>
 
-                <div className="overflow-hidden px-4 py-10">
-                    <motion.div
-                        className="flex gap-6 justify-center"
-                        initial={false}
-                        animate={{ x: 0 }}
-                    >
-                        <AnimatePresence mode="wait">
+                <div
+                    className="overflow-hidden px-4 py-10"
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
+                    <AnimatePresence initial={false} custom={direction} mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            custom={direction}
+                            variants={variants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeInOut"
+                            }}
+                            className={`flex gap-6 justify-center ${isMobile ? 'flex-col items-center' : ''}`}
+                        >
                             {visibleProducts.map((product, index) => (
                                 <motion.div
-                                    key={currentIndex + index}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.8 }}
-                                    transition={{ duration: 0.4 }}
-                                    className="w-full lg:w-80 flex-shrink-0 flex"
+                                    key={`${currentIndex}-${index}`}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                                    className={`${isMobile ? 'w-full max-w-sm' : 'w-full lg:w-80'} flex-shrink-0 flex mb-6 lg:mb-0`}
                                 >
                                     <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:transform hover:scale-105 transition-all duration-300 flex flex-col w-full">
-                                        {/* Modified Logo Section */}
+                                        {/* Product card content remains the same */}
                                         <div className="relative h-48 w-full bg-gray-50 flex items-center justify-center p-8">
                                             <div className="relative w-full h-full flex items-center justify-center">
                                                 <img
@@ -196,9 +266,7 @@ const Product = () =>
                                                     }}
                                                 />
                                             </div>
-                                            <div
-                                                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-50 to-transparent h-12 flex items-end"
-                                            >
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-50 to-transparent h-12 flex items-end">
                                                 <h3 className="w-full text-center text-2xl font-bold text-gray-800 pb-2">
                                                     {product.title}
                                                 </h3>
@@ -222,32 +290,34 @@ const Product = () =>
                                                 {product.description}
                                             </p>
 
-                                            <div className="grid grid-cols-3 gap-4 mb-6">
+                                            <div className="flex flex-grow flex-wrap justify-between items-center gap-x-2 mb-6">
                                                 {Object.entries(product.stats).map(([key, value]) => (
                                                     <div key={key} className="text-center">
                                                         <div className="text-lg font-bold text-blue-600">
                                                             {value}
                                                         </div>
-                                                        <div className="text-xs text-gray-500 capitalize">
+                                                        <div className="text-xs font-semibold text-gray-500 capitalize">
                                                             {key}
                                                         </div>
                                                     </div>
                                                 ))}
                                             </div>
 
-                                            <motion.button
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition-all duration-300"
-                                            >
-                                                Learn More
-                                            </motion.button>
+                                            <Link to={product.link}>
+                                                <motion.button
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition-all duration-300"
+                                                >
+                                                    Learn More
+                                                </motion.button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </motion.div>
                             ))}
-                        </AnimatePresence>
-                    </motion.div>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
 
                 <div className="flex justify-center gap-2 mt-8">
@@ -256,8 +326,8 @@ const Product = () =>
                             key={index}
                             onClick={() => goToPage(index)}
                             className={`w-3 h-3 rounded-full transition-all duration-300 ${Math.floor(currentIndex / productsPerPage) === index
-                                ? 'bg-white scale-125'
-                                : 'bg-white/40 hover:bg-white/60'
+                                    ? 'bg-white scale-125'
+                                    : 'bg-white/40 hover:bg-white/60'
                                 }`}
                         />
                     ))}

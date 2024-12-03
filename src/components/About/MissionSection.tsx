@@ -76,7 +76,7 @@ const MissionSection = () =>
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-24"
+                    className="text-center mb-14"
                 >
                     <motion.div
                         variants={glowVariants}
@@ -89,9 +89,9 @@ const MissionSection = () =>
                         </div>
                     </motion.div>
 
-                    <h2 className="text-5xl p-3 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#003366] to-blue-600 mb-4">
+                    {/* <h2 className="text-5xl p-3 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#003366] to-blue-600 mb-4">
                         Transforming Energy Management
-                    </h2>
+                    </h2> */}
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         HItoai delivers next-generation AI solutions that revolutionize how organizations
                         optimize, monitor, and control their energy resources for a sustainable future.
