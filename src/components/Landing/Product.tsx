@@ -9,7 +9,7 @@ import selwel from "../../assets/selwell/logo1.png";
 import seculla from "../../assets/Secuall/logo2.png";
 import two3d from "../../assets/223D/logo.png";
 import knomed from "../../assets/Knomed/logo.png";
-import Ai4physio from "../../assets/Ai4Physio/logo.png";
+import Ai4physio from "../../assets/Ai4physio/logo.png";
 import aimarcom from "../../assets/AIMARCOM/logo.png";
 
 const products = [
