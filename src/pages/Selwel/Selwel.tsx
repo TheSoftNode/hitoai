@@ -98,7 +98,7 @@ const Selwel = () =>
                 <span>Coming Soon</span>
               </motion.div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-white">
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ const Selwel = () =>
                 transition={{ duration: 0.5 }}
                 src={Image1}
                 alt="Trading Platform Interface"
-                className="relative rounded-2xl shadow-2xl w-full object-cover"
+                className="relative h-96 rounded-2xl shadow-2xl w-full object-cover"
               />
             </motion.div>
           </div>

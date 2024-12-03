@@ -19,6 +19,7 @@ const Navbar = () =>
         { name: 'KNOMED', path: '/knomed' },
         { name: 'Aimarcom', path: '/aimarcom' },
         { name: 'Ai4Physio', path: '/ai4physio' },
+        { name: '223D', path: '/223d' },
     ];
 
     const contactOptions = [

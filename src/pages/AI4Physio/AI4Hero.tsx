@@ -7,7 +7,7 @@ const AI4Hero = () =>
         <div className="relative  bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
             {/* Animated background elements */}
             <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+                {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div> */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
             </div>
 

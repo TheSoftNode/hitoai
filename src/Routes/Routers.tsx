@@ -1,10 +1,12 @@
 import MainDashboard from '@/components/Admin/MainDashboard';
+import TwoTwentyThreeD from '@/pages/223D/TwoTwentyThreeD';
 import About from '@/pages/About';
 import AdminDashboard from '@/pages/AdminDashboard';
 import AI4Physio from '@/pages/AI4Physio/AI4Physio';
 import APIsPage from '@/pages/APIsPage';
 import ContactPage from '@/pages/ContactPage';
 import Docs from '@/pages/DocsPage';
+import Knomed from '@/pages/KNOMED/Knomed';
 import Landing from '@/pages/Landing';
 import LoginPage from '@/pages/Login';
 import RegisterPage from '@/pages/Register';
@@ -33,6 +35,10 @@ const Routers = () =>
         <Route path="/susnet" element={<SusNet />} />
         <Route path="/secuall" element={<Secuall />} />
         <Route path="/ai4physio" element={<AI4Physio />} />
+        <Route path="/knomed" element={<Knomed />} />
+        <Route path="/knomed" element={<Knomed />} />
+        <Route path="/223d" element={<TwoTwentyThreeD />} />
+
     </Routes>
 };
 
