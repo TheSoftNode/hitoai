@@ -214,13 +214,13 @@ const Product = () =>
             <div className="relative w-full max-w-7xl">
                 <button
                     onClick={prevSlide}
-                    className="absolute left-0 lg:left-8 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 bg-white rounded-full p-1 md:p-3 shadow-lg hover:bg-gray-100 transition-all"
+                    className="hidden sm:flex absolute left-0 lg:left-8 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-12 z-10 bg-white rounded-full p-1 md:p-3 shadow-lg hover:bg-gray-100 transition-all"
                 >
                     <ChevronLeft className="w-6 h-6 text-gray-800" />
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="absolute right-0 lg:right-8 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-10 bg-white rounded-full p-1 md:p-3 shadow-lg hover:bg-gray-100 transition-all"
+                    className="hidden sm:flex absolute right-0 lg:right-8 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 z-10 bg-white rounded-full p-1 md:p-3 shadow-lg hover:bg-gray-100 transition-all"
                 >
                     <ChevronRight className="w-6 h-6 text-gray-800" />
                 </button>
@@ -326,8 +326,8 @@ const Product = () =>
                             key={index}
                             onClick={() => goToPage(index)}
                             className={`w-3 h-3 rounded-full transition-all duration-300 ${Math.floor(currentIndex / productsPerPage) === index
-                                    ? 'bg-white scale-125'
-                                    : 'bg-white/40 hover:bg-white/60'
+                                ? 'bg-white scale-125'
+                                : 'bg-white/40 hover:bg-white/60'
                                 }`}
                         />
                     ))}

@@ -132,7 +132,7 @@ const Aimarcom = () =>
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="text-7xl md:text-8xl font-bold"
+                            className="text-5xl sm:text-6xl md:text-8xl font-bold"
                         >
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500">
                                 AIMARCOM
