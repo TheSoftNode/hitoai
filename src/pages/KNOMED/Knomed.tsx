@@ -173,9 +173,9 @@ const Knomed = () =>
 
             {/* Demo Request Section */}
             <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 py-24">
-                <div className="absolute inset-0">
+                {/* <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
-                </div>
+                </div> */}
 
                 <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div

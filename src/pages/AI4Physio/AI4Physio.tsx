@@ -236,7 +236,7 @@ export default function AI4Physio()
             <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-24 overflow-hidden">
                 {/* Grid background overlay */}
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+                    {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div> */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
                 </div>
 
