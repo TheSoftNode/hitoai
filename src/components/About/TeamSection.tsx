@@ -11,7 +11,7 @@ interface TeamMemberProps
     name: string;
     role: string;
     image?: string;
-    description: string;
+    description?: string;
 }
 
 const fadeIn: Variants = {
@@ -30,6 +30,32 @@ const staggerChildren: Variants = {
         }
     }
 };
+
+// const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, description }) => (
+//     <motion.div
+//         variants={fadeIn}
+//         className="group h-full"
+//     >
+//         <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl backdrop-blur-sm bg-white/80 border-0 hover:bg-white/90 h-full">
+//             <CardContent className="p-6 flex flex-col h-full">
+//                 <div className="flex flex-col items-center space-y-4 flex-grow">
+//                     <div className="relative">
+//                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-20 group-hover:opacity-30 transition-opacity"></div>
+//                         <Avatar className="w-24 h-24 border-2 border-primary relative">
+//                             <AvatarImage src={image || `/api/placeholder/150/150`} alt={name} />
+//                             <AvatarFallback>{name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+//                         </Avatar>
+//                     </div>
+//                     <div className="text-center flex-grow flex flex-col">
+//                         <h3 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">{name}</h3>
+//                         <Badge variant="secondary" className="mt-2 self-center bg-gradient-to-r from-blue-500/10 to-purple-500/10">{role}</Badge>
+//                         <p className="mt-4 text-sm text-muted-foreground flex-grow">{description}</p>
+//                     </div>
+//                 </div>
+//             </CardContent>
+//         </Card>
+//     </motion.div>
+// );
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, description }) => (
     <motion.div
@@ -50,6 +76,17 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, description 
                         <h3 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">{name}</h3>
                         <Badge variant="secondary" className="mt-2 self-center bg-gradient-to-r from-blue-500/10 to-purple-500/10">{role}</Badge>
                         <p className="mt-4 text-sm text-muted-foreground flex-grow">{description}</p>
+                        {/* {description ? (
+                            <p className="mt-4 text-sm text-muted-foreground flex-grow">{description}</p>
+                        ) : (
+                            <div className="mt-4 flex-grow flex flex-col items-center justify-center space-y-3">
+                                <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                                <div className="p-4 rounded-lg bg-gradient-to-r from-blue-50/50 to-purple-50/50 flex items-center justify-center">
+                                    <UserCircle2 className="w-6 h-6 text-blue-500/40" />
+                                </div>
+                                <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                            </div>
+                        )} */}
                     </div>
                 </div>
             </CardContent>
