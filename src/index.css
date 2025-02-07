@@ -79,3 +79,137 @@
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Main headers */
+.terms-content h1 {
+  @apply text-3xl font-bold text-gray-900 mb-8 mt-12;
+}
+
+.terms-content h2 {
+  @apply text-2xl font-bold text-gray-800 mb-6 mt-10;
+}
+
+.terms-content h3 {
+  @apply text-xl font-semibold text-gray-800 mb-4 mt-8;
+}
+
+/* Lists */
+.terms-content ul {
+  @apply space-y-2 my-4 ml-6 list-disc;
+}
+
+.terms-content ol {
+  @apply space-y-2 my-4 ml-6 list-decimal;
+}
+
+.terms-content li {
+  @apply text-gray-600 leading-relaxed;
+}
+
+/* Paragraphs */
+.terms-content p {
+  @apply text-gray-600 leading-relaxed mb-4;
+}
+
+/* Links */
+.terms-content a {
+  @apply text-blue-600 hover:text-blue-700 underline;
+}
+
+/* Strong text */
+.terms-content strong {
+  @apply font-semibold text-gray-800;
+}
+
+/* Bold text */
+.terms-content b {
+  @apply font-semibold text-gray-800;
+}
+
+/* Sections */
+.terms-content section {
+  @apply mb-8 p-6 bg-white rounded-xl border border-gray-100;
+}
+
+/* Table of contents */
+.terms-content .table-of-contents {
+  @apply my-8 p-6 bg-gray-50 rounded-xl;
+}
+
+.terms-content .table-of-contents ul {
+  @apply list-none ml-0;
+}
+
+.terms-content .table-of-contents a {
+  @apply no-underline text-gray-600 hover:text-blue-600 transition-colors;
+}
+
+/* Special sections */
+.terms-content blockquote {
+  @apply pl-4 border-l-4 border-blue-200 my-4 text-gray-600 italic;
+}
+
+/* Spacing */
+.terms-content * + * {
+  @apply mt-4;
+}
+
+/* Additional styles for specific elements from your docx */
+.terms-content .section-title {
+  @apply text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-100;
+}
+
+.terms-content .subsection-title {
+  @apply text-xl font-semibold text-gray-800 mb-4;
+}
+
+/* Contact information styling */
+.terms-content .contact-info {
+  @apply bg-gray-50 p-6 rounded-xl my-8;
+}
+
+.terms-content .contact-info p {
+  @apply mb-2;
+}
+
+/* Table styling */
+.terms-content table {
+  @apply w-full border-collapse my-6;
+}
+
+.terms-content th {
+  @apply bg-gray-50 text-left p-4 font-semibold text-gray-700 border border-gray-200;
+}
+
+.terms-content td {
+  @apply p-4 border border-gray-200 text-gray-600;
+}
+
+/* Important notices */
+.terms-content .important-notice {
+  @apply bg-amber-50 border-l-4 border-amber-500 p-4 my-6 text-amber-700;
+}

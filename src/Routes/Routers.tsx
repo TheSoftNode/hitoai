@@ -7,6 +7,7 @@ import Aimarcom from '@/pages/AIMarcom/Aimarcom';
 import APIsPage from '@/pages/APIsPage';
 import ContactPage from '@/pages/ContactPage';
 import Docs from '@/pages/DocsPage';
+import EEPPage from '@/pages/EEPPage';
 import Knomed from '@/pages/KNOMED/Knomed';
 import Landing from '@/pages/Landing';
 import LoginPage from '@/pages/Login';
@@ -39,6 +40,7 @@ const Routers = () =>
         <Route path="/knomed" element={<Knomed />} />
         <Route path="/aimarcom" element={<Aimarcom />} />
         <Route path="/223d" element={<TwoTwentyThreeD />} />
+        <Route path="/EEP"  element={<EEPPage />} />
 
     </Routes>
 };

@@ -2,6 +2,7 @@ import Footer from "../components/Footer/Footer";
 import FloatingChat from "../components/Dangling/FloatingChat";
 import Navbar from "../components/Header/Navbar";
 import Routers from "../Routes/Routers";
+import { Toaster } from "@/components/ui/toaster";
 
 
 const Layout = () =>
@@ -14,6 +15,9 @@ const Layout = () =>
       </main>
       <Footer />
       <FloatingChat />
+      <Toaster 
+       
+      />
     </>
   );
 };

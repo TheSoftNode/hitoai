@@ -3,8 +3,7 @@ import { Search, Menu, X, ChevronDown, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import hitoai from "../../assets/newlogo.png"
 
-const Navbar = () =>
-{
+const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState('');
@@ -32,42 +31,36 @@ const Navbar = () =>
         { name: 'About', path: '/about' },
         { name: 'Documentations', path: '/documentation' },
         { name: 'Products', path: '', hasDropdown: true, dropdownItems: products },
+        { name: 'EEP', path: '/EEP' },
         { name: 'Services', path: '/services' },
         { name: 'APIs', path: '/apis' },
         { name: 'Contact', path: '', hasDropdown: true, dropdownItems: contactOptions },
     ];
 
-    useEffect(() =>
-    {
-        const handleScroll = () =>
-        {
+    useEffect(() => {
+        const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleSearch = (e: React.FormEvent<HTMLFormElement>) =>
-    {
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Search Query:', searchQuery);
     };
 
-    const handleDropdownClick = (dropdownName: string) =>
-    {
+    const handleDropdownClick = (dropdownName: string) => {
         setActiveDropdown(activeDropdown === dropdownName ? '' : dropdownName);
     };
 
-    const handleClickOutside = (e: MouseEvent) =>
-    {
-        if (e.target && !(e.target as Element).closest('.dropdown-container'))
-        {
+    const handleClickOutside = (e: MouseEvent) => {
+        if (e.target && !(e.target as Element).closest('.dropdown-container')) {
             setActiveDropdown('');
         }
     };
 
-    useEffect(() =>
-    {
+    useEffect(() => {
         document.addEventListener('click', handleClickOutside);
         return () => document.removeEventListener('click', handleClickOutside);
     }, []);
@@ -169,8 +162,7 @@ const Navbar = () =>
                                                         Profile
                                                     </Link>
                                                     <button
-                                                        onClick={() =>
-                                                        {
+                                                        onClick={() => {
                                                             setIsAuthenticated(false);
                                                             setActiveDropdown('');
                                                         }}
@@ -236,8 +228,7 @@ const Navbar = () =>
                                 {item.hasDropdown ? (
                                     <>
                                         <button
-                                            onClick={() =>
-                                            {
+                                            onClick={() => {
                                                 setMobileDrop(mobileDrop === item.name ? '' : item.name);
                                             }}
                                             className="flex items-center justify-between w-full px-4 py-2 text-left text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
@@ -258,8 +249,7 @@ const Navbar = () =>
                                                     key={dropItem.path}
                                                     to={dropItem.path}
                                                     className="block px-4 py-2 text-sm text-blue-200 hover:bg-blue-500/20 hover:text-white rounded-lg transition-colors"
-                                                    onClick={() =>
-                                                    {
+                                                    onClick={() => {
                                                         setMobileDrop('');
                                                         setIsMobileMenuOpen(false);
                                                     }}
@@ -307,8 +297,7 @@ const Navbar = () =>
                                         Profile
                                     </Link>
                                     <button
-                                        onClick={() =>
-                                        {
+                                        onClick={() => {
                                             setIsAuthenticated(false);
                                             setIsMobileMenuOpen(false);
                                         }}
