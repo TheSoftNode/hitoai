@@ -39,7 +39,7 @@ export const MasterySection: React.FC = () => {
                   </div>
                   <div>
                     <div className="flex items-center space-x-2 mb-2">
-                      <span className="text-2xl">{module.emoji}</span>
+                      {/* <span className="text-2xl">{module.emoji}</span> */}
                       <CardTitle className="text-xl font-bold">
                         {module.title}
                       </CardTitle>
